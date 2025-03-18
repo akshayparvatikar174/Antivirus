@@ -1,0 +1,7 @@
+name 'chrome'
+maintainer 'Akshay'
+maintainer_email 'akshay@chef.com'
+license 'All Rights Reserved'
+description 'Installs/Configures webserver'
+version '0.1.0'
+chef_version '>= 16.0'
