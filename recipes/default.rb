@@ -1,17 +1,17 @@
 # Cookbook Name:: nginxphp
-# Recipe:: install_chrome
-# Description:: Installs Google Chrome from a pre-downloaded package
+# Recipe:: install_antivirus
+# Description:: Installs ClamAV antivirus from a pre-downloaded package
 
-chrome_package = '/home/ubuntu/chef-repo/cookbooks/nginxphp/google-chrome-stable_current_amd64.deb'
+antivirus_package = '/home/ubuntu/chef-repo/cookbooks/antivirus/clamav_1.2.1-1ubuntu1_amd64.deb'
 
 # Step 1: Ensure the package exists before installing
-file chrome_package do
+file antivirus_package do
   action :nothing
 end
 
-# Step 2: Install Google Chrome using dpkg
-dpkg_package 'google-chrome-stable' do
-  source chrome_package
+# Step 2: Install ClamAV using dpkg
+dpkg_package 'clamav' do
+  source antivirus_package
   action :install
   notifies :run, 'execute[fix_missing_dependencies]', :immediately
 end
@@ -22,9 +22,9 @@ execute 'fix_missing_dependencies' do
   action :nothing
 end
 
-# Step 4: Verify Google Chrome installation
-execute 'verify_chrome_installation' do
-  command 'google-chrome --version'
+# Step 4: Verify ClamAV installation
+execute 'verify_clamav_installation' do
+  command 'clamd --version'
   action :run
-  only_if 'which google-chrome'
+  only_if 'which clamd'
 end
