@@ -2,7 +2,7 @@
 # Recipe:: install_antivirus
 # Description:: Installs ClamAV antivirus from a pre-downloaded package
 
-antivirus_package = '/home/ubuntu/chef-repo/cookbooks/antivirus/clamav_1.2.1-1ubuntu1_amd64.deb'
+antivirus_package = '/home/ubuntu/chef-repo/cookbooks/antivirus/clamav-milter_1.4.2+dfsg-0ubuntu1_amd64.deb'
 
 # Step 1: Ensure the package exists before installing
 file antivirus_package do
